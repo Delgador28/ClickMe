@@ -1,6 +1,3 @@
 # projectname
 
-### Collaborators
--Nick
--Jeremy
--Preston
+### Collaborators - Dan
