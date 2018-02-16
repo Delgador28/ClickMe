@@ -1,4 +1,6 @@
 # projectname
 
-#Collaborators 
--Brian 
+## Collaborators
+- Erika
+- Brian
+- DAN
