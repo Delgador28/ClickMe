@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -59,7 +60,7 @@
                         <div class="btn-group" role="group" aria-label="...">
                             <button type="button" class="btn btn-default">Fix Grammar</button>
                             <button type="button" class="btn btn-default">Copy</button>
-                            <button type="button" class="btn btn-default" href= "plagarismcheck.html">Plagarism Check</button>
+                            <button type="button" class="btn btn-default" id = "plagarismBtn">Plagarism Check</button>
                             <button type="button" class="btn btn-default">Clear</button>
                         </div>
 
@@ -76,6 +77,24 @@
 
 
     </container>
+
+    <script type="text/javascript">
+
+        // This "document.ready" code isn't necessary in this example... but is useful to become familiar with.
+        // "document.ready" makes sure that our JavaScript doesn't get run until the HTML document is finished loading.
+        $(document).ready(function () {
+
+            // Here we use jQuery to select the header with "click-me" as its ID.
+            // Whenever it is clicked...
+            $("#plagarismBtn").on("click", function () {
+
+                // ... we trigger an alert.
+                window.location = "file:///Users/briangrad/projectname/plagarismcheck.html";
+            });
+
+        });
+
+    </script>
 
 </body>
 <footer>

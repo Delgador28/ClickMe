@@ -3,12 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Plagarism Check</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="plagarism.css">
+
 </head>
 
 <body>
+    <div class="header">
+
+        <h1>Plagarism Test</h1>
+
+        <p id = "firstP">Does the text pass the Plagarism test?</p>
+    </div>
 
     <section>
 
@@ -16,38 +31,26 @@
             <div class="row">
                 <div class="col-xs-6">
 
-                    <div class="panel panel-default" id="yourText">
+                    <div class="panel panel-default" id = "yourText">
                         <div class="panel-heading">
                             <h3 class="panel-title">Your Text</h3>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Were you is?">
+                        <div class="panel-body" id ="plagarismText">
+                            Panel content
                         </div>
-                        <div class="btn-group" role="group" aria-label="...">
-                            <button type="button" class="btn btn-default">Convert</button>
-                            <button type="button" class="btn btn-default">Clear</button>
-                        </div>
-
                     </div>
                 </div>
 
 
 
                 <div class="col-xs-6">
-                    <div class="panel panel-default" id="newText">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">New Text</h3>
+                            <h3 class="panel-title">Plagarism Results</h3>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Where are you?">
+                        <div class="panel-body">
+                            Panel content
                         </div>
-
-                        <div class="btn-group" role="group" aria-label="...">
-                            <button type="button" class="btn btn-default">Fix Grammar</button>
-                            <button type="button" class="btn btn-default">Copy</button>
-                            <button type="button" class="btn btn-default">Clear</button>
-                        </div>
-
                     </div>
                 </div>
             </div>
