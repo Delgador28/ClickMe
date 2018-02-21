@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Document</title>
+
+    <script>
+    //Second box should show after the response comes back 
+    //
+    $(document).ready(function(){
+    $("#newText").on("click",function(){
+
+    var text = $("#firstBox").val()
+
+    $.ajax({method:"post" , url: "http://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text="+text})
+    .then(function(response){
+        console.log(response);
+    $("#secondBox").val(response.spun_text)
+    //.show whatever ID the new button is, which means it needs to hide when the page loads
+    //For second call to new API, we would use $(#secondBox).val
+    //You can create a div and pass through the value of which words were changed using replace_terms
+    })
+    })
+    });        
+    </script>
+
+</head>
+<body>
+
+<textarea name="Text-Area" id="firstBox" cols="30" rows="10"></textarea>
+<button id = "newText">New Text</button>
+<textarea name="Response-Area" id="secondBox" cols="30" rows="10"></textarea>   
+
+</body>
+</html>
