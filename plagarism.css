@@ -1,0 +1,19 @@
+body{
+    background-color: black;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+#firstP{
+    color: white;
+    text-align: center;
+}
+
+#yourText{
+    width: 100%;
+    padding-bottom: 500px;
+    margin-bottom: 0;
+}

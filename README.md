@@ -1,3 +1,6 @@
 # projectname
 
-### Collaborators - Dan
+## Collaborators
+- Erika
+- Brian
+- DAN
