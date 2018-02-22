@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Document</title>
+    <title>Document </title>
 
     <script>
     //Second box should show after the response comes back 
@@ -36,7 +36,6 @@
                 for (var i = 0; i < response.errors.length; i++) {
                     console.log(response.errors[i].bad.length);
                     if (response.errors[i].bad.length > 1) {
-                        console.log('changingText');
                     text = text.replace(response.errors[i].bad, response.errors[i].better[0]);
                     console.log(text)
                     $("#secondBox").text(text);
@@ -67,14 +66,14 @@
             })
         })
     });        
-    </script>
+//     </script>
 
-</head>
-<body>
+// </head>
+// <body>
 
-<textarea name="Text-Area" id="firstBox" cols="30" rows="10"></textarea>
-<button id = "newText">New Text</button>
-<textarea name="Response-Area" id="secondBox" cols="30" rows="10"></textarea>   
+// <textarea name="Text-Area" id="firstBox" cols="30" rows="10"></textarea>
+// <button id = "newText">New Text</button>
+// <textarea name="Response-Area" id="secondBox" cols="30" rows="10"></textarea>   
 
-</body>
-</html>
+// </body>
+// </html>
