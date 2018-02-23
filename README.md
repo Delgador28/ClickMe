@@ -46,4 +46,4 @@ Daniel McCracken
 
 Screenshot: 
 
-![alt text](checkIT.png "Home screen")
+![alt text](Screen Shot 2018-02-23 at 10.52.13 AM.png "Home screen")
