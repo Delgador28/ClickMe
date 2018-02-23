@@ -10,20 +10,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-  <title>Grammar Check</title>
+  <title>Check It</title>
+
+
 </head>
 
 <body>
 
-
-  <!-- Insert materialize portion instead of bootstrap  -->
 
   <div id="nav">
     <div class="slider">
       <ul class="slides">
         <li>
           <img src="assets/images/write.jpg">
-          <!-- random image -->
           <div class="caption center-align">
             <h3>Check It ✓</h3>
             <h5 class="light grey-text text-lighten-3">The coolest tool in school</h5>
@@ -31,7 +30,6 @@
         </li>
         <li>
           <img src="assets/images/write.jpg">
-          <!-- random image -->
           <div class="caption left-align">
             <h3>What is Check It ✓?</h3>
             <h5 class="light grey-text text-lighten-3">Check It ✓ is a fundamental tool made for anyone struggling to write, giving synonyms, grammar checks, and defintions,
@@ -45,7 +43,6 @@
 
 
 
-  <!-- Panel one, where your original paper shall go -->
   <div id="all">
     <div class="row">
       <div class="col s12 m6">
@@ -63,8 +60,6 @@
         </div>
       </div>
 
-
-      <!--Panel 3 with changes fixed-->
 
       <div class="col s12 m6">
         <div class="card grey darken-1 z-depth-5">
@@ -100,16 +95,6 @@
   </div>
 
 
-
-
-
-  <!-- Make panel in middle with mistakes found in paper  Panel 2-->
-
-
-
-
-
-  <!--Panel 3 with changes from api being displayed-->
   <div id="last">
     <div class="row">
       <div class="col s12 m6">
@@ -137,10 +122,6 @@
         </div>
       </div>
     </div>
-
-    
-
-    <!-- Button to 'searching the web' code that brian made-->
 
 
 
@@ -181,8 +162,6 @@
       // ================================================================== -->
 
       function grammar(argument) {
-        // MAKE REQUEST
-        // var text = $("#firstBox").val().trim();
 
         var queryURL = "https://api.textgears.com/check.php?text=" + argument + "&key=UTwhCrerzebHa6Bh";
         var text = argument
@@ -191,16 +170,11 @@
           method: "GET",
           url: queryURL
         }).then(function (response) {
-          console.log(response);
           if (response.errors.length == 0) {
-            console.log("There are no errors!");
           } else {
-            console.log("Errors exist");
             for (var i = 0; i < response.errors.length; i++) {
-              console.log(response.errors[i].bad.length);
               if (response.errors[i].bad.length > 1) {
                 text = text.replace(response.errors[i].bad, response.errors[i].better[0]);
-                console.log(text)
                 $("#secondBox").text(text);
               }
             }
@@ -208,8 +182,6 @@
         })
       };
 
-      //This is the function for calling the grammar AJAX.
-      // grammar(text)
 
       $(document).ready(function () {
         $("#newText").on("click", function () {
@@ -218,19 +190,11 @@
 
           $.ajax({ method: "post", url: "http://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
             .then(function (response) {
-              console.log(response);
-              //change made here grammar
               grammar(response.spun_text)
-
-              //.show whatever ID the new button is, which means it needs to hide when the page loads
-              //For second call to new API, we would use $(#secondBox).val
-              //You can create a div and pass through the value of which words were changed using replace_terms
             })
         })
       });
 
-      //This is the function for calling the grammar AJAX.
-      // grammar(text)
 
       $(document).ready(function () {
         $("#newText").on("click", function () {
@@ -239,13 +203,8 @@
 
           $.ajax({ method: "post", url: "http://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
             .then(function (response) {
-              console.log(response);
-              //change made here grammar
               grammar(response.spun_text)
 
-              //.show whatever ID the new button is, which means it needs to hide when the page loads
-              //For second call to new API, we would use $(#secondBox).val
-              //You can create a div and pass through the value of which words were changed using replace_terms
             })
         })
       });
@@ -253,17 +212,14 @@
 
       $(function () {
         $("#search").on("click", function (event) {
-          console.log("test")
           event.preventDefault();
-          
-          
-          // $('.preloader-background'
 
 
-            
+
           var definition = $("#word").val().trim();
 
           var queryURL = "https://cors-anywhere.herokuapp.com/https://owlbot.info/api/v2/dictionary/" + definition + "?format=json";
+
 
           $.ajax({
             method: 'GET',
@@ -273,21 +229,20 @@
               'Content-Type': 'application/json'
             }
           }).then(function (response) {
-            console.log(response);
 
-          // If search button is clicked clear definition space
+
             $("#definition").empty();
-      
+
             for (var i = 0; i < response.length; i++) {
-              
+
               $("#definition").append(response[i].definition)
             }
 
 
-          
-                }); // END THEN ON AJAX TO TEXTGEARS
 
-      }); // END CLICK ON FORM SUBMIT BUTTON
+          }); // END THEN ON AJAX TO TEXTGEARS
+
+        }); // END CLICK ON FORM SUBMIT BUTTON
 
       }); // END READY
 
