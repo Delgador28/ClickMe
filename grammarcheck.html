@@ -94,7 +94,7 @@
     </div>
     <div class="row">
       <container id="clear">
-        <a class="waves-effect waves-light btn grey darken-1 z-depth-5"> Clear </a>
+        <a class="waves-effect waves-light btn grey darken-1 z-depth-5"> Clear All </a>
       </container>
     </div>
   </div>
@@ -105,6 +105,10 @@
 
   <!-- Make panel in middle with mistakes found in paper  Panel 2-->
 
+
+
+
+
   <!--Panel 3 with changes from api being displayed-->
   <div id="last">
     <div class="row">
@@ -114,7 +118,7 @@
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="word" class="materialize-textarea" placeholder="Insert Word..."></textarea>
+                  <textarea id="word" class="materialize-textarea" placeholder="Insert Word for a definition..."></textarea>
                   <textarea id="definition" class="materialize-textarea" placeholder="Results..."></textarea>
                 </div>
               </div>
@@ -134,6 +138,7 @@
       </div>
     </div>
 
+    
 
     <!-- Button to 'searching the web' code that brian made-->
 
@@ -208,9 +213,39 @@
             })
         })
       });
+
+      //This is the function for calling the grammar AJAX.
+      // grammar(text)
+
+      $(document).ready(function () {
+        $("#newText").on("click", function () {
+
+          var text = $("#firstBox").val()
+
+          $.ajax({ method: "post", url: "http://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
+            .then(function (response) {
+              console.log(response);
+              //change made here grammar
+              grammar(response.spun_text)
+
+              //.show whatever ID the new button is, which means it needs to hide when the page loads
+              //For second call to new API, we would use $(#secondBox).val
+              //You can create a div and pass through the value of which words were changed using replace_terms
+            })
+        })
+      });
+
+
       $(function () {
         $("#search").on("click", function (event) {
+          console.log("test")
           event.preventDefault();
+          
+          
+          // $('.preloader-background'
+
+
+            
           var definition = $("#word").val().trim();
           var queryURL = "https://cors-anywhere.herokuapp.com/https://owlbot.info/api/v2/dictionary/" + definition + "?format=json";
           $.ajax({
@@ -222,13 +257,16 @@
             }
           }).then(function (response) {
             console.log(response);
+
+          // If search button is clicked clear definition space
+            $("#definition").empty();
+      
             for (var i = 0; i < response.length; i++) {
-              if (response[i].length > 1) {
-                definition = definition.replace(response[i]);
-                console.log(definition)
-              }
+              
               $("#definition").append(response[i].definition)
             }
+
+
           
                 }); // END THEN ON AJAX TO TEXTGEARS
       }); // END CLICK ON FORM SUBMIT BUTTON
