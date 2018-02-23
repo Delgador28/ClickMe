@@ -44,4 +44,4 @@ Erika Delgado
 Daniel McCracken
 
 
-Screenshot: 
+Screenshot: Images are under the within the images folder that is within the assets folder.
