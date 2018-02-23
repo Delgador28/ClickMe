@@ -46,4 +46,4 @@ Daniel McCracken
 
 Screenshot: 
 
-![alt text](briangrad/checkIT.png "Home screen")
+![alt text](screenshots/checkIT.png "Home screen")
