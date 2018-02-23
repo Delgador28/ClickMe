@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -178,7 +177,12 @@
       $(document).ready(function () {
         $("#newText").on("click", function () {
           var text = $("#firstBox").val()
+<<<<<<< HEAD
           $.ajax({ method: "post", url: "https://crossorigin.me/https://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
+=======
+
+          $.ajax({ method: "post", url: "https://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
+>>>>>>> 7f3dadc6074facab0ad07938fcab4e5ea98cf96e
             .then(function (response) {
               grammar(response.spun_text)
               //.show whatever ID the new button is, which means it needs to hide when the page loads
@@ -194,13 +198,23 @@
 
           var text = $("#firstBox").val()
 
+<<<<<<< HEAD
           $.ajax({ method: "post", url: "https://crossorigin.me/https://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
+=======
+          $.ajax({ method: "post", url: "https://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
+>>>>>>> 7f3dadc6074facab0ad07938fcab4e5ea98cf96e
             .then(function (response) {
               grammar(response.spun_text)
 
             })
         })
       });
+
+
+
+
+
+
 
 
       $(function () {
