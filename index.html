@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -188,7 +187,7 @@
 
           var text = $("#firstBox").val()
 
-          $.ajax({ method: "post", url: "http://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
+          $.ajax({ method: "post", url: "https://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
             .then(function (response) {
               grammar(response.spun_text)
             })
@@ -201,13 +200,19 @@
 
           var text = $("#firstBox").val()
 
-          $.ajax({ method: "post", url: "http://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
+          $.ajax({ method: "post", url: "https://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
             .then(function (response) {
               grammar(response.spun_text)
 
             })
         })
       });
+
+
+
+
+
+
 
 
       $(function () {
