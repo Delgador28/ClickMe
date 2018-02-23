@@ -115,118 +115,118 @@
               <div class="row">
                 <div class="input-field col s12">
                   <textarea id="word" class="materialize-textarea" placeholder="Insert Word..."></textarea>
-                  <textarea id="defintion" class="materialize-textarea" placeholder="Results..."></textarea>
+                  <textarea id="definition" class="materialize-textarea" placeholder="Results..."></textarea>
                 </div>
               </div>
             </form>
           </div>
         </div>
-      
 
 
-      <div id="button">
+
+        <div id="button">
           <div class="row">
-              <container id="search">
-                <a class="waves-effect waves-light btn grey darken-1 z-depth-5"> Search It </a>
-              </container>
-            </div>
+            <container id="search">
+              <a class="waves-effect waves-light btn grey darken-1 z-depth-5"> Search It </a>
+            </container>
           </div>
+        </div>
       </div>
     </div>
 
 
-      <!-- Button to 'searching the web' code that brian made-->
+    <!-- Button to 'searching the web' code that brian made-->
 
 
 
 
-      <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT -->
 
 
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-      <!-- ================================================================== -->
+    <!-- ================================================================== -->
 
-      <script>
+    <script>
 
-        $("#clear").click(function () {
-          $("textarea").val("");
-        });
+      $("#clear").click(function () {
+        $("textarea").val("");
+      });
 
-        $(document).ready(function () {
-          $('.slider').slider();
-        });
-
-
-
-        // Pause slider
-        $('.slider').slider('pause');
-        // Start slider
-        $('.slider').slider('start');
-        // Next slide
-        $('.slider').slider('next');
-        // Previous slide
-        $('.slider').slider('prev');
+      $(document).ready(function () {
+        $('.slider').slider();
+      });
 
 
-        // ================================================================== -->
 
-        function grammar(argument) {
-          // MAKE REQUEST
-          // var text = $("#firstBox").val().trim();
+      // Pause slider
+      $('.slider').slider('pause');
+      // Start slider
+      $('.slider').slider('start');
+      // Next slide
+      $('.slider').slider('next');
+      // Previous slide
+      $('.slider').slider('prev');
 
-          var queryURL = "https://api.textgears.com/check.php?text=" + argument + "&key=UTwhCrerzebHa6Bh";
-          var text = argument
 
-          $.ajax({
-            method: "GET",
-            url: queryURL
-          }).then(function (response) {
-            console.log(response);
-            if (response.errors.length == 0) {
-              console.log("There are no errors!");
-            } else {
-              console.log("Errors exist");
-              for (var i = 0; i < response.errors.length; i++) {
-                console.log(response.errors[i].bad.length);
-                if (response.errors[i].bad.length > 1) {
-                  text = text.replace(response.errors[i].bad, response.errors[i].better[0]);
-                  console.log(text)
-                  $("#secondBox").text(text);
-                }
+      // ================================================================== -->
+
+      function grammar(argument) {
+        // MAKE REQUEST
+        // var text = $("#firstBox").val().trim();
+
+        var queryURL = "https://api.textgears.com/check.php?text=" + argument + "&key=UTwhCrerzebHa6Bh";
+        var text = argument
+
+        $.ajax({
+          method: "GET",
+          url: queryURL
+        }).then(function (response) {
+          console.log(response);
+          if (response.errors.length == 0) {
+            console.log("There are no errors!");
+          } else {
+            console.log("Errors exist");
+            for (var i = 0; i < response.errors.length; i++) {
+              console.log(response.errors[i].bad.length);
+              if (response.errors[i].bad.length > 1) {
+                text = text.replace(response.errors[i].bad, response.errors[i].better[0]);
+                console.log(text)
+                $("#secondBox").text(text);
               }
             }
-          })
-        };
+          }
+        })
+      };
 
-        //This is the function for calling the grammar AJAX.
-        // grammar(text)
+      //This is the function for calling the grammar AJAX.
+      // grammar(text)
 
-        $(document).ready(function () {
-          $("#newText").on("click", function () {
+      $(document).ready(function () {
+        $("#newText").on("click", function () {
 
-            var text = $("#firstBox").val()
+          var text = $("#firstBox").val()
 
-            $.ajax({ method: "post", url: "http://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
-              .then(function (response) {
-                console.log(response);
-                //change made here grammar
-                grammar(response.spun_text)
+          $.ajax({ method: "post", url: "http://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
+            .then(function (response) {
+              console.log(response);
+              //change made here grammar
+              grammar(response.spun_text)
 
-                //.show whatever ID the new button is, which means it needs to hide when the page loads
-                //For second call to new API, we would use $(#secondBox).val
-                //You can create a div and pass through the value of which words were changed using replace_terms
-              })
-          })
-        });
+              //.show whatever ID the new button is, which means it needs to hide when the page loads
+              //For second call to new API, we would use $(#secondBox).val
+              //You can create a div and pass through the value of which words were changed using replace_terms
+            })
+        })
+      });
 
 
 
-      </script>
+    </script>
 
 </body>
 
