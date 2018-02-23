@@ -152,17 +152,12 @@
     <!-- ================================================================== -->
 
     <script>
-
       $("#clear").click(function () {
         $("textarea").val("");
       });
-
       $(document).ready(function () {
         $('.slider').slider();
       });
-
-
-
       // Pause slider
       $('.slider').slider('pause');
       // Start slider
@@ -171,17 +166,12 @@
       $('.slider').slider('next');
       // Previous slide
       $('.slider').slider('prev');
-
-
       // ================================================================== -->
-
       function grammar(argument) {
         // MAKE REQUEST
         // var text = $("#firstBox").val().trim();
-
         var queryURL = "https://api.textgears.com/check.php?text=" + argument + "&key=UTwhCrerzebHa6Bh";
         var text = argument
-
         $.ajax({
           method: "GET",
           url: queryURL
@@ -202,37 +192,27 @@
           }
         })
       };
-
       //This is the function for calling the grammar AJAX.
       // grammar(text)
-
       $(document).ready(function () {
         $("#newText").on("click", function () {
-
           var text = $("#firstBox").val()
-
           $.ajax({ method: "post", url: "http://api.spinbot.net/api/spinner?key=092deb0523426e92f62a15eae82d012c&text=" + text })
             .then(function (response) {
               console.log(response);
               //change made here grammar
               grammar(response.spun_text)
-
               //.show whatever ID the new button is, which means it needs to hide when the page loads
               //For second call to new API, we would use $(#secondBox).val
               //You can create a div and pass through the value of which words were changed using replace_terms
             })
         })
       });
-
-
       $(function () {
         $("#search").on("click", function (event) {
           event.preventDefault();
-
           var definition = $("#word").val().trim();
-
           var queryURL = "https://cors-anywhere.herokuapp.com/https://owlbot.info/api/v2/dictionary/" + definition + "?format=json";
-
           $.ajax({
             method: 'GET',
             url: queryURL,
@@ -242,7 +222,6 @@
             }
           }).then(function (response) {
             console.log(response);
-
             for (var i = 0; i < response.length; i++) {
               if (response[i].length > 1) {
                 definition = definition.replace(response[i]);
@@ -252,12 +231,8 @@
             }
           
                 }); // END THEN ON AJAX TO TEXTGEARS
-
       }); // END CLICK ON FORM SUBMIT BUTTON
-
       }); // END READY
-
-
     </script>
 
 </body>
